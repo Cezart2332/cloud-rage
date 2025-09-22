@@ -1,0 +1,91 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@prisma/client':
+        specifier: 3.15.2
+        version: 3.15.2(prisma@3.15.2)
+      bcrypt-nodejs:
+        specifier: ^0.0.3
+        version: 0.0.3
+      bcryptjs:
+        specifier: ^3.0.2
+        version: 3.0.2
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.6.1
+    devDependencies:
+      '@types/ragemp-s':
+        specifier: github:CocaColaBear/types-ragemp-s#master
+        version: https://codeload.github.com/CocaColaBear/types-ragemp-s/tar.gz/20bd9fe6b033b48bd36e3b28e8993dd5ebc3f4f6
+      prisma:
+        specifier: 3.15.2
+        version: 3.15.2
+
+packages:
+
+  '@prisma/client@3.15.2':
+    resolution: {integrity: sha512-ErqtwhX12ubPhU4d++30uFY/rPcyvjk+mdifaZO5SeM21zS3t4jQrscy8+6IyB0GIYshl5ldTq6JSBo1d63i8w==}
+    engines: {node: '>=12.6'}
+    peerDependencies:
+      prisma: '*'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+
+  '@prisma/engines-version@3.15.1-1.461d6a05159055555eb7dfb337c9fb271cbd4d7e':
+    resolution: {integrity: sha512-e3k2Vd606efd1ZYy2NQKkT4C/pn31nehyLhVug6To/q8JT8FpiMrDy7zmm3KLF0L98NOQQcutaVtAPhzKhzn9w==}
+
+  '@prisma/engines@3.15.1-1.461d6a05159055555eb7dfb337c9fb271cbd4d7e':
+    resolution: {integrity: sha512-NHlojO1DFTsSi3FtEleL9QWXeSF/UjhCW0fgpi7bumnNZ4wj/eQ+BJJ5n2pgoOliTOGv9nX2qXvmHap7rJMNmg==}
+
+  '@types/ragemp-s@https://codeload.github.com/CocaColaBear/types-ragemp-s/tar.gz/20bd9fe6b033b48bd36e3b28e8993dd5ebc3f4f6':
+    resolution: {tarball: https://codeload.github.com/CocaColaBear/types-ragemp-s/tar.gz/20bd9fe6b033b48bd36e3b28e8993dd5ebc3f4f6}
+    version: 0.2.25
+
+  bcrypt-nodejs@0.0.3:
+    resolution: {integrity: sha512-NmTbLm867btBHCBZ222FQXkQKzecB0KG6pTXFa6NeTVZaSnLfCsx7EK2PL3J+kX8xJThUquEBbhimRCKKZX9zA==}
+    deprecated: bcrypt-nodejs is no longer actively maintained. Please use bcrypt or bcryptjs. See https://github.com/kelektiv/node.bcrypt.js/wiki/bcrypt-vs-brypt.js to learn more about these two options
+
+  bcryptjs@3.0.2:
+    resolution: {integrity: sha512-k38b3XOZKv60C4E2hVsXTolJWfkGRMbILBIe2IBITXciy5bOsTKot5kDrf3ZfufQtQOUN5mXceUEpU1rTl9Uog==}
+    hasBin: true
+
+  dotenv@16.6.1:
+    resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
+    engines: {node: '>=12'}
+
+  prisma@3.15.2:
+    resolution: {integrity: sha512-nMNSMZvtwrvoEQ/mui8L/aiCLZRCj5t6L3yujKpcDhIPk7garp8tL4nMx2+oYsN0FWBacevJhazfXAbV1kfBzA==}
+    engines: {node: '>=12.6'}
+    hasBin: true
+
+snapshots:
+
+  '@prisma/client@3.15.2(prisma@3.15.2)':
+    dependencies:
+      '@prisma/engines-version': 3.15.1-1.461d6a05159055555eb7dfb337c9fb271cbd4d7e
+    optionalDependencies:
+      prisma: 3.15.2
+
+  '@prisma/engines-version@3.15.1-1.461d6a05159055555eb7dfb337c9fb271cbd4d7e': {}
+
+  '@prisma/engines@3.15.1-1.461d6a05159055555eb7dfb337c9fb271cbd4d7e': {}
+
+  '@types/ragemp-s@https://codeload.github.com/CocaColaBear/types-ragemp-s/tar.gz/20bd9fe6b033b48bd36e3b28e8993dd5ebc3f4f6': {}
+
+  bcrypt-nodejs@0.0.3: {}
+
+  bcryptjs@3.0.2: {}
+
+  dotenv@16.6.1: {}
+
+  prisma@3.15.2:
+    dependencies:
+      '@prisma/engines': 3.15.1-1.461d6a05159055555eb7dfb337c9fb271cbd4d7e

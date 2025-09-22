@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - CLOUD.MP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Main Admin Panel -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="panel-header">
+            <div class="header-content">
+                <div class="title">
+                    <h2>Admin Panel</h2>
+                    <span class="server-name">CLOUD.MP</span>
+                </div>
+                
+                
+                
+                <button class="close-btn" onClick="closeAdminPanel()" id="closeBtn">×</button>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <div class="actions-grid">
+                <button class="action-btn danger" id="kickBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9z"/>
+                    </svg>
+                    <span>Kick Player</span>
+                </button>
+
+                <button class="action-btn danger" id="banBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM4 12c0-4.42 3.58-8 8-8 1.85 0 3.55.63 4.9 1.69L5.69 16.9C4.63 15.55 4 13.85 4 12zm8 8c-1.85 0-3.55-.63-4.9-1.69L18.31 7.1C19.37 8.45 20 10.15 20 12c0 4.42-3.58 8-8 8z"/>
+                    </svg>
+                    <span>Ban Player</span>
+                </button>
+
+                <button class="action-btn promote helper-promote" id="promoteHelperBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63c-.34-1.02-1.3-1.37-2.16-1.37-.86 0-1.82.35-2.16 1.37L13.5 16H16v6h4z"/>
+                    </svg>
+                    <span>Promote to Helper</span>
+                </button>
+
+                <button class="action-btn promote admin-promote" id="promoteAdminBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    <span>Promote to Admin</span>
+                </button>
+
+                <button class="action-btn promote leader-promote" id="promoteLeaderBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span>Promote to Leader</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kick Player Modal -->
+    <div class="modal-overlay" id="kickModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Kick Player</h3>
+                <button class="modal-close" onclick="closeModal('kickModal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Select Player</label>
+                    <div class="custom-dropdown player-dropdown" id="kickPlayerDropdown">
+                        <div class="dropdown-toggle">Choose a player...</div>
+                        <div class="dropdown-menu"></div>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="form-group">
+                    <label>Reason</label>
+                    <textarea id="kickReason" placeholder="Enter reason for kick..." maxlength="200"></textarea>
+                    <div class="char-count"><span id="kickCharCount">0</span>/200</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal('kickModal')">Cancel</button>
+                <button class="btn-confirm danger" onclick="executeKick()">Kick Player</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ban Player Modal -->
+    <div class="modal-overlay" id="banModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Ban Player</h3>
+                <button class="modal-close" onclick="closeModal('banModal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Select Player</label>
+                    <div class="custom-dropdown player-dropdown" id="banPlayerDropdown">
+                        <div class="dropdown-toggle">Choose a player...</div>
+                        <div class="dropdown-menu"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Reason</label>
+                    <textarea id="banReason" placeholder="Enter reason for ban..." maxlength="200"></textarea>
+                    <div class="char-count"><span id="banCharCount">0</span>/200</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal('banModal')">Cancel</button>
+                <button class="btn-confirm danger" onclick="executeBan()">Ban Player</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promote Helper Modal -->
+    <div class="modal-overlay" id="promoteHelperModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Promote to Helper</h3>
+                <button class="modal-close" onclick="closeModal('promoteHelperModal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Select Player</label>
+                    <div class="custom-dropdown player-dropdown" id="promoteHelperDropdown">
+                        <div class="dropdown-toggle">Choose a player...</div>
+                        <div class="dropdown-menu"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal('promoteHelperModal')">Cancel</button>
+                <button class="btn-confirm promote" onclick="executePromote('helper')">Promote to Helper</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promote Admin Modal -->
+    <div class="modal-overlay" id="promoteAdminModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Promote to Admin</h3>
+                <button class="modal-close" onclick="closeModal('promoteAdminModal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Select Player</label>
+                    <div class="custom-dropdown player-dropdown" id="promoteAdminDropdown">
+                        <div class="dropdown-toggle">Choose a player...</div>
+                        <div class="dropdown-menu"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal('promoteAdminModal')">Cancel</button>
+                <button class="btn-confirm promote" onclick="executePromote('admin')">Promote to Admin</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promote Leader Modal -->
+    <div class="modal-overlay" id="promoteLeaderModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Promote to Leader</h3>
+                <button class="modal-close" onclick="closeModal('promoteLeaderModal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Select Player</label>
+                    <div class="custom-dropdown player-dropdown" id="promoteLeaderDropdown">
+                        <div class="dropdown-toggle">Choose a player...</div>
+                        <div class="dropdown-menu"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Select Faction</label>
+                    <div class="custom-dropdown faction-dropdown" id="promoteLeaderFactionDropdown">
+                        <div class="dropdown-toggle">Choose a faction...</div>
+                        <div class="dropdown-menu"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal('promoteLeaderModal')">Cancel</button>
+                <button class="btn-confirm promote" onclick="executePromote('leader')">Promote to Leader</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

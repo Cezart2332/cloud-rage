@@ -1,0 +1,68 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Install Prisma v3 and regenerate client",
+			"type": "shell",
+			"command": "pnpm install && pnpx prisma generate",
+			"problemMatcher": [
+				"$eslint-stylish"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Install deps (pnpm)",
+			"type": "shell",
+			"command": "pnpm install",
+			"group": "build"
+		},
+		{
+			"label": "Approve builds for Prisma",
+			"type": "shell",
+			"command": "pnpm approve-builds prisma @prisma/client @prisma/engines",
+			"group": "build"
+		},
+		{
+			"label": "Prisma generate (v3)",
+			"type": "shell",
+			"command": "pnpx prisma generate",
+			"group": "build"
+		},
+		{
+			"label": "Prisma generate (v3) with schema path",
+			"type": "shell",
+			"command": "pnpx prisma generate",
+			"group": "build"
+		},
+		{
+			"label": "Prisma generate (v3) retry",
+			"type": "shell",
+			"command": "pnpx prisma generate",
+			"group": "build"
+		},
+		{
+			"label": "Prisma generate (v3) default output",
+			"type": "shell",
+			"command": "pnpx prisma generate",
+			"group": "build"
+		},
+		{
+			"label": "Use local Prisma CLI (v3)",
+			"type": "shell",
+			"command": "pnpm prisma generate",
+			"group": "build"
+		},
+		{
+			"label": "Install dotenv",
+			"type": "shell",
+			"command": "pnpm install",
+			"group": "build"
+		},
+		{
+			"label": "Prisma generate with binary engine",
+			"type": "shell",
+			"command": "pnpm prisma generate",
+			"group": "build"
+		}
+	]
+}

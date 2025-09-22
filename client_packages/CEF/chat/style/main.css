@@ -1,0 +1,149 @@
+* {
+    font-family: Ubuntu, sans-serif;
+    font-weight: 600;
+    font-size: 1vw;
+    background-color: transparent;
+    user-select: none;
+}
+
+.chatBox {
+    margin: 0.5em 0 0 0.5em;
+    width: 37em;
+    background: rgba(15, 25, 45, 0.15);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    padding: 0.8em;
+    border: 1px solid rgba(70, 130, 200, 0.15);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.messageList {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 18em;
+    direction: rtl;
+    padding: 0.4em;
+    border-radius: 8px;
+    background: rgba(10, 20, 40, 0.1);
+}
+
+.messageList div {
+    margin-left: 0.25em;
+    direction: ltr;
+}
+
+.messageList::-webkit-scrollbar {
+    width: 0.4em;
+    height: 0.4em;
+}
+
+.messageList::-webkit-scrollbar-track {
+    border-radius: 1em;
+    background: transparent;
+}
+
+.messageList::-webkit-scrollbar-thumb {
+    border-radius: 1em;
+    background: rgba(70, 130, 200, 0.6);
+    border: 1px solid rgba(70, 130, 200, 0.2);
+}
+
+.messageList::-webkit-scrollbar-thumb:hover {
+    background: rgba(70, 130, 200, 0.8);
+}
+
+.message {
+    color: rgba(255, 255, 255, 0.95);
+    padding: 0.4em 0.6em;
+    line-height: 1.4em;
+    margin: 0.1em 0;
+    background: rgba(20, 40, 80, 0.15);
+    border-radius: 8px;
+    border-left: 3px solid rgba(70, 130, 200, 0.4);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+}
+
+.message:hover {
+    background: rgba(30, 50, 90, 0.25);
+    border-left-color: rgba(100, 160, 230, 0.6);
+    transform: translateX(2px);
+}
+
+.inputBar {
+    background: rgba(20, 40, 80, 0.4);
+    color: rgba(255, 255, 255, 0.95);
+    width: 27.5em;
+    outline: none;
+    border: 2px solid rgba(70, 130, 200, 0.25);
+    border-radius: 8px;
+    height: 2.2em;
+    padding: 0 0.8em;
+    margin-top: 0.5em;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(6px);
+    visibility: visible !important;
+    opacity: 1;
+    display: block;
+}
+
+.inputBar:focus {
+    border-color: rgba(100, 160, 230, 0.6);
+    background: rgba(25, 45, 85, 0.5);
+    box-shadow: 0 0 12px rgba(70, 130, 200, 0.2);
+}
+
+.inputBar::placeholder {
+    color: rgba(200, 220, 255, 0.6);
+}
+
+.charCount {
+    color: rgba(200, 220, 255, 0.8);
+    margin-left: 1em;
+    margin-top: 0.3em;
+    font-size: 0.85em;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hide {
+    visibility: hidden !important;
+    opacity: 0;
+    display: none;
+}
+
+.stroke {
+    text-shadow: 
+        0 1px 2px rgba(0, 0, 0, 0.8),
+        0 0 8px rgba(70, 130, 200, 0.3);
+}
+
+/* Context Menu Styles */
+.chat-context-menu {
+    position: fixed;
+    background: rgba(15, 25, 45, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 130, 200, 0.4);
+    border-radius: 8px;
+    padding: 0.3em 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: none;
+    min-width: 120px;
+}
+
+.context-item {
+    padding: 0.6em 1em;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.2s ease;
+}
+
+.context-item:hover {
+    background: rgba(70, 130, 200, 0.3);
+    color: rgba(255, 255, 255, 1);
+}

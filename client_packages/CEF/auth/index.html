@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>CLOUD.MP - Autentificare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <div class="card">
+      <div class="title">
+        <div class="logo-dot"></div>
+        <h1>CLOUD.MP</h1>
+        <p class="subtitle">Autentifică-te sau creează un cont</p>
+      </div>
+      <div class="tabs">
+        <button class="tab active" data-tab="login">Autentificare</button>
+        <button class="tab" data-tab="register">Înregistrare</button>
+      </div>
+
+      <form id="loginForm" class="form active" autocomplete="off">
+        <div class="field">
+          <label>Parolă</label>
+          <div class="input-wrap">
+            <input id="Password" type="password" placeholder="Introdu parola" minlength="4" required />
+            <button type="button" class="reveal-btn" aria-label="Arată parola">👁</button>
+          </div>
+          <div class="caps" id="capsLogin" hidden>Caps Lock este ACTIVAT</div>
+        </div>
+        <button type="submit" onClick="preloadAccountInfo(1)" class="btn primary">Autentifică-te</button>
+        <div class="hint">Sfat: Apasă Enter pentru a trimite</div>
+      </form>
+
+      <form id="registerForm" class="form" autocomplete="off">
+        <div id="registerError" class="error-box hidden" role="alert" aria-live="assertive"></div>
+        <div class="field">
+          <label>Email</label>
+          <input id="regEmail" type="email" placeholder="tu@exemplu.com" required />
+        </div>
+        <div class="field">
+          <label>Vârstă</label>
+          <input id="regAge" type="number" inputmode="numeric" min="13" max="120" placeholder="18" required />
+        </div>
+        <div class="field">
+          <label>Parolă</label>
+          <div class="input-wrap">
+            <input id="Password" type="password" placeholder="Creează o parolă puternică" minlength="6" required />
+            <button type="button" class="reveal-btn" aria-label="Arată parola">👁</button>
+          </div>
+          <div class="caps" id="capsReg1" hidden>Caps Lock este ACTIVAT</div>
+          <div class="strength" aria-hidden="true">
+            <span class="bar" data-i="0"></span>
+            <span class="bar" data-i="1"></span>
+            <span class="bar" data-i="2"></span>
+            <span class="bar" data-i="3"></span>
+            <span class="label" id="pwStrengthLabel">Slabă</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>Confirmă parola</label>
+          <div class="input-wrap">
+            <input id="regPassword2" type="password" placeholder="Repetă parola" minlength="6" required />
+            <button type="button" class="reveal-btn" aria-label="Arată parola">👁</button>
+          </div>
+          <div class="caps" id="capsReg2" hidden>Caps Lock este ACTIVAT</div>
+        </div>
+        <div class="field">
+          <label>Gen</label>
+          <div class="segmented">
+            <input type="radio" id="gender_m" name="gender" value="male" checked>
+            <label for="gender_m">Bărbat</label>
+            <input type="radio" id="gender_f" name="gender" value="female">
+            <label for="gender_f">Femeie</label>
+            <input type="radio" id="gender_o" name="gender" value="other">
+            <label for="gender_o">Altul</label>
+          </div>
+        </div>
+        <button type="submit" onClick="preloadAccountInfo(0)" class="btn primary">Creează cont</button>
+        <div class="hint">Continuând, ești de acord cu regulile serverului.</div>
+      </form>
+
+      <p id="message" class="message" aria-live="polite"></p>
+    </div>
+    <div class="watermark">CLOUD.MP</div>
+  </div>
+  <script src="./assets/ui.js"></script>
+
+</body>
+</html>
